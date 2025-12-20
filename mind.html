@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Mind Topic Cards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+      background: #f4f6f8;
+    }
+    .categories button {
+      margin: 6px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 20px;
+      background: #444;
+      color: white;
+      cursor: pointer;
+    }
+    .cards {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      width: 220px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+    a.back {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Human Mind – Pick 3 Cards</h1>
+  <p>Select a category</p>
+
+  <div class="categories">
+    <button onclick="pick('emotion')">Emotions</button>
+    <button onclick="pick('fear')">Fear</button>
+    <button onclick="pick('love')">Love</button>
+    <button onclick="pick('identity')">Identity</button>
+    <button onclick="pick('growth')">Growth</button>
+  </div>
+
+  <div class="cards" id="cards"></div>
+
+  <a href="index.html" class="back">← Back to Home</a>
+
+  <script>
+    const questions = {
+      emotion: [
+        "What emotion do you feel most often?",
+        "How do you express anger?",
+        "What makes you feel calm?",
+        "Do you hide your emotions?",
+        "What emotion is hardest to handle?",
+        "How do you deal with sadness?",
+        "What makes you feel joyful?",
+        "Can emotions be controlled?",
+        "What triggers your stress?",
+        "How do emotions affect decisions?"
+      ],
+      fear: [
+        "What are you afraid of?",
+        "Is fear useful?",
+        "How do you overcome fear?",
+        "What fear did you conquer?",
+        "Does fear stop growth?",
+        "Fear of failure or success?",
+        "What scares people most?",
+        "Is fear learned?",
+        "Does fear protect us?",
+        "What fear remains?"
+      ],
+      love: [
+        "What is love?",
+        "How do you show love?",
+        "Is love unconditional?",
+        "Can love fade?",
+        "Is self-love important?",
+        "Love or stability?",
+        "Can love be taught?",
+        "What hurts love?",
+        "Does love change us?",
+        "Is love a choice?"
+      ],
+      identity: [
+        "Who are you really?",
+        "What defines identity?",
+        "Do we change over time?",
+        "Are labels helpful?",
+        "Who influences identity?",
+        "Can identity be rebuilt?",
+        "Do we need validation?",
+        "Are we one self or many?",
+        "What shapes personality?",
+        "Is identity fixed?"
+      ],
+      growth: [
+        "What helps personal growth?",
+        "Is pain necessary to grow?",
+        "What holds people back?",
+        "How do habits shape us?",
+        "Is growth uncomfortable?",
+        "Can people truly change?",
+        "What mindset helps growth?",
+        "Is growth a choice?",
+        "What did you outgrow?",
+        "What are you growing into?"
+      ]
+    };
+
+    function pick(category) {
+      const shuffled = [...questions[category]].sort(() => 0.5 - Math.random());
+      const selected = shuffled.slice(0, 3);
+      const container = document.getElementById("cards");
+      container.innerHTML = "";
+      selected.forEach(q => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerText = q;
+        container.appendChild(div);
+      });
+    }
+  </script>
+
+</body>
+</html>
