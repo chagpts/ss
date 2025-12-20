@@ -75,8 +75,8 @@
     }
 
     .card {
-      width: 230px;
-      height: 320px;
+      width: 250px;
+      height: 360px;
       position: relative;
       transform-style: preserve-3d;
       transition: transform 1.6s ease;
@@ -95,12 +95,12 @@
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
-      border-radius: 22px;
+      border-radius: 24px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 24px;
+      padding: 26px;
       box-sizing: border-box;
       box-shadow: 0 12px 28px rgba(0,0,0,0.25);
     }
@@ -116,7 +116,7 @@
       background: linear-gradient(145deg, #1e3a5f, #2f5f9e);
       color: white;
       transform: rotateY(180deg);
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.7;
     }
 
@@ -166,64 +166,64 @@
   <script>
     const questions = {
       emotions: [
-        "Is an emotion something we feel or something we create?",
-        "Can emotions exist without thoughts?",
-        "Is it possible to fully understand a feeling?",
-        "Are emotions truths or interpretations?",
-        "Can we trust our emotions?",
-        "Is emotional pain meaningful?",
-        "Do emotions shape reality?",
-        "Are suppressed emotions still active?",
-        "Is calmness an emotion or a state?",
-        "What emotion do we avoid questioning?"
+        "When you experience a strong emotion, do you believe it reflects an objective truth about the situation, or is it shaped more by your past experiences and expectations?",
+        "If emotions are temporary by nature, why do some feelings seem to define entire periods of our lives?",
+        "Do you think emotions exist independently within us, or are they created only through interaction with the world around us?",
+        "Is it possible to fully understand an emotion while you are still experiencing it, or only in hindsight?",
+        "When emotional pain arises, do you see it as something to avoid, or something that asks to be understood?",
+        "Are there emotions that society encourages us to feel, and others it quietly teaches us to suppress?",
+        "If you could remove one emotion from your life, would doing so change who you are at your core?",
+        "Do emotions reveal who we truly are, or do they sometimes hide deeper truths about ourselves?",
+        "Is emotional stability a sign of inner strength, or can emotional fluctuation also be a form of honesty?",
+        "What emotion do you feel most uncomfortable examining closely, and why do you think that is?"
       ],
       relationships: [
-        "Can we ever truly know another person?",
-        "Is love a choice or a consequence?",
-        "Do relationships define who we are?",
-        "Is connection stronger than independence?",
-        "Can silence be intimacy?",
-        "Is conflict necessary for closeness?",
-        "Are we responsible for others’ emotions?",
-        "Can distance deepen relationships?",
-        "Is trust given or earned?",
-        "Do relationships reveal or shape the self?"
+        "In relationships, how much of what we call connection is truly mutual understanding, and how much is projection?",
+        "Can we ever truly know another person, or are we always relating to our own interpretation of them?",
+        "Is love something that grows through effort, or something that naturally exists until it fades?",
+        "Do relationships shape who we become, or do they simply reveal parts of ourselves that were already there?",
+        "Is emotional closeness built through sharing similarities, or through accepting differences?",
+        "When a relationship causes pain, how do we decide whether it is something to heal or something to release?",
+        "Are we responsible for the emotional well-being of those we care about, or only for our intentions?",
+        "Can distance sometimes deepen a relationship more than constant presence?",
+        "Is trust a conscious decision, or something that forms beyond our control?",
+        "What does it mean to truly listen to another person without trying to change them?"
       ],
       self: [
-        "Where does the self begin and end?",
-        "Are we the same person over time?",
-        "Is identity discovered or constructed?",
-        "Can we observe ourselves objectively?",
-        "Is the self stable or fluid?",
-        "Are we defined by thoughts or actions?",
-        "Is self-awareness freedom or burden?",
-        "Can we escape the self?",
-        "What part of the self is silent?",
-        "Is authenticity possible?"
+        "When you think about who you are, do you feel more connected to your thoughts, your emotions, or your actions?",
+        "Is the self something stable that persists over time, or something that is constantly being rewritten?",
+        "How much of your identity feels chosen, and how much feels inherited or imposed?",
+        "Is self-awareness a form of freedom, or can it sometimes become a burden?",
+        "Can we observe ourselves honestly without changing what we observe?",
+        "Do you believe there is a part of yourself that remains unchanged regardless of circumstances?",
+        "Is authenticity about expressing everything we feel, or about choosing what we live by?",
+        "When you are alone, does your sense of self feel clearer or more uncertain?",
+        "Is it possible to lose yourself, or does the self simply transform?",
+        "What part of yourself do you sense, but struggle to put into words?"
       ],
       choices: [
-        "Do we truly have free will?",
-        "Are choices shaped more by fear or desire?",
-        "Is not choosing still a choice?",
-        "Do choices define us?",
-        "Can a wrong choice still lead to truth?",
-        "Is regret inevitable?",
-        "Are we responsible for unintended outcomes?",
-        "Do choices reveal values?",
-        "Is certainty necessary to choose?",
-        "Can we choose who we become?"
+        "When making a choice, how much do you feel guided by freedom, and how much by unseen limitations?",
+        "Is choosing not to decide truly a neutral act, or is it a decision with its own consequences?",
+        "Do our choices define who we are, or do they simply express who we already believe ourselves to be?",
+        "Can a choice made out of fear still lead to meaningful growth?",
+        "How do you understand regret: as a sign of failure, or as evidence of reflection?",
+        "Is certainty necessary before acting, or is uncertainty an unavoidable part of choosing?",
+        "Do we become responsible for outcomes we could not have predicted?",
+        "Is it possible to make a completely free choice, untouched by past experience?",
+        "When a choice closes one path, does it truly eliminate it, or does it continue to shape us indirectly?",
+        "If you could revisit one decision, would you want to change it, or simply understand it better?"
       ],
       values: [
-        "Where do values come from?",
-        "Are values universal or personal?",
-        "Do values change with experience?",
-        "Is living by values difficult?",
-        "What value is worth suffering for?",
-        "Are values discovered or taught?",
-        "Can values conflict without resolution?",
-        "Is morality emotional or rational?",
-        "What value do we rarely question?",
-        "Can values define a life?"
+        "Where do your core values come from: personal reflection, cultural influence, or lived experience?",
+        "Are values something we discover over time, or something we consciously decide to live by?",
+        "When values conflict, how do you decide which one deserves priority?",
+        "Is it harder to live according to your values, or to define them clearly?",
+        "Do values remain meaningful if they are never challenged?",
+        "Can a value change without losing its importance?",
+        "Are there values you claim to hold, but find difficult to act upon?",
+        "Is moral judgment driven more by emotion or by reason?",
+        "What value do you rarely question, and what might happen if you did?",
+        "If your life reflected your values perfectly, what would look different?"
       ]
     };
 
