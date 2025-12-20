@@ -20,52 +20,53 @@ h1 {
   font-family: 'Baloo 2', cursive;
 }
 
-/* 공통 카드 영역 */
+/* 카드 줄 */
 .cards {
   display: flex;
-  gap: 20px;
+  gap: 24px;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 30px;
 }
 
-/* ===== 카드 3D 설정 ===== */
+/* 3D 무대 */
 .scene {
   width: 180px;
   height: 240px;
-  perspective: 1000px;
+  perspective: 1200px;
 }
 
 .scene.small {
-  width: 220px;
-  height: 160px;
+  width: 240px;
+  height: 180px;
 }
 
-/* 카드 본체 */
+/* 카드 */
 .card {
   width: 100%;
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
-  transition: transform 1.5s;
+  transition: transform 1.6s ease-in-out;
   cursor: pointer;
 }
 
+/* 뒤 → 앞 */
 .card.flip {
   transform: rotateY(180deg);
 }
 
-/* 앞 / 뒤 공통 */
+/* 앞/뒤 공통 */
 .card-face {
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden;
   border-radius: 20px;
+  backface-visibility: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 18px;
+  padding: 20px;
   box-sizing: border-box;
 }
 
@@ -77,32 +78,37 @@ h1 {
 }
 
 .category-back {
-  background: #333;
+  background: #222;
   transform: rotateY(180deg);
 }
 
 .category-back img {
-  width: 80px;
-  opacity: 0.2;
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  opacity: 0.18;
 }
 
 /* ===== 질문 카드 ===== */
 .question-front {
-  background: white;
+  background: #ffffff;
   color: #333;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.7;
   box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  text-align: center;
 }
 
 .question-back {
-  background: #f2f2f2;
+  background: #f1f1f1;
   transform: rotateY(180deg);
 }
 
 .question-back img {
-  width: 70px;
-  opacity: 0.15;
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  opacity: 0.18;
 }
 
 /* 버튼 */
@@ -208,7 +214,7 @@ const data = {
 const categoryDiv = document.getElementById("categoryCards");
 const questionDiv = document.getElementById("questionCards");
 
-/* 카테고리 카드 생성 */
+/* 카테고리 카드 */
 Object.keys(data).forEach(cat => {
   const scene = document.createElement("div");
   scene.className = "scene";
@@ -233,7 +239,7 @@ function draw(cat, card) {
   card.classList.add("flip");
 
   setTimeout(() => {
-    const qs = [...data[cat]].sort(() => 0.5 - Math.random()).slice(0,3);
+    const qs = [...data[cat]].sort(() => 0.5 - Math.random()).slice(0, 3);
 
     qs.forEach((q, i) => {
       const scene = document.createElement("div");
@@ -243,7 +249,7 @@ function draw(cat, card) {
       qc.className = "card";
 
       qc.innerHTML = `
-        <div class="card-face question-front"></div>
+        <div class="card-face question-front">${q}</div>
         <div class="card-face question-back">
           <img src="verse.png" alt="Verse">
         </div>
@@ -252,16 +258,14 @@ function draw(cat, card) {
       scene.appendChild(qc);
       questionDiv.appendChild(scene);
 
+      // 질문 카드: 뒷면 → 앞면
       setTimeout(() => {
         qc.classList.add("flip");
-        setTimeout(() => {
-          qc.querySelector(".question-front").textContent = q;
-        }, 1200);
       }, i * 500);
     });
 
     card.classList.remove("flip");
-  }, 1200);
+  }, 1400);
 }
 
 document.getElementById("year").textContent = new Date().getFullYear();
