@@ -1,267 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>Mind Cards</title>
+  <meta charset="UTF-8">
+  <title>Verse English Conversation Meetup</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 
-<style>
-body {
-  font-family: 'Quicksand', sans-serif;
-  text-align: center;
-  padding: 40px;
-  background:
-    linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
-    url("verse.png") no-repeat center center / cover;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+        url("verse.png") no-repeat center center / cover;
+    }
 
-h1 {
-  font-family: 'Baloo 2', cursive;
-}
+    .hero {
+      background: rgba(255,255,255,0.95);
+      display: inline-block;
+      padding: 35px 50px;
+      border-radius: 28px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+      margin-bottom: 50px;
+    }
 
-.cards {
-  display: flex;
-  gap: 24px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
+    h1 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 42px;
+      margin: 0 0 10px;
+      color: #222;
+    }
 
-/* 3D 무대 */
-.scene {
-  width: 180px;
-  height: 240px;
-  perspective: 1200px;
-}
+    .hero p {
+      font-size: 18px;
+      color: #444;
+    }
 
-.scene.small {
-  width: 240px;
-  height: 180px;
-}
+    .topics {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-/* 카드 */
-.card {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 1.6s ease-in-out;
-}
+    .topic {
+      background: rgba(255,255,255,0.95);
+      padding: 35px 40px;
+      border-radius: 26px;
+      width: 330px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+    }
 
-.card.flip {
-  transform: rotateY(180deg);
-}
+    .topic h2 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 26px;
+    }
 
-/* 앞/뒤 공통 */
-.card-face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  box-sizing: border-box;
-}
+    .topic p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
 
-/* ===== 카테고리 카드 ===== */
-.category-front {
-  background: #444;
-  color: white;
-  font-size: 20px;
-}
+    a.button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 30px;
+      background: #333;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 16px;
+    }
 
-.category-back {
-  background: #222;
-  transform: rotateY(180deg);
-}
-
-.category-back img {
-  width: 90%;
-  height: 90%;
-  opacity: 0.18;
-}
-
-/* ===== 질문 카드 ===== */
-.question-front {
-  background: #ffffff;
-  color: #333;
-  font-size: 15px;
-  line-height: 1.7;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-}
-
-/* 뒷면만 회전 */
-.question-back {
-  background: #f1f1f1;
-  transform: rotateY(180deg);
-}
-
-.question-back img {
-  width: 90%;
-  height: 90%;
-  opacity: 0.18;
-}
-
-/* 버튼 */
-button {
-  margin-top: 40px;
-  padding: 10px 25px;
-  border-radius: 25px;
-  border: none;
-  background: #333;
-  color: white;
-  cursor: pointer;
-}
-
-/* footer */
-footer {
-  margin-top: 70px;
-  font-size: 13px;
-  background: rgba(255,255,255,0.75);
-  display: inline-block;
-  padding: 10px 18px;
-  border-radius: 20px;
-}
-</style>
+    footer {
+      margin-top: 90px;
+      font-size: 13px;
+      color: #555;
+      background: rgba(255,255,255,0.75);
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 20px;
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>Choose a Category</h1>
+  <div class="hero">
+    <h1>Verse English Conversation Meetup</h1>
+    <p>A relaxed space to talk, listen, and connect in English.</p>
+  </div>
 
-<div class="cards" id="categoryCards"></div>
-<div class="cards" id="questionCards"></div>
-
-<button onclick="location.href='index.html'">Back to Home</button>
-
-<footer>
-  © <span id="year"></span> Cha GPTs. All rights reserved.
-</footer>
-
-<script>
-const data = {
-  Emotions: [
-    "What emotion do you feel most often these days?",
-    "What makes you feel calm?",
-    "When do you feel happiest?",
-    "What makes you nervous?",
-    "How do you deal with stress?",
-    "What makes you laugh easily?",
-    "When do you feel lonely?",
-    "What makes you feel proud?",
-    "What makes you feel safe?",
-    "How do you express emotions?"
-  ],
-  Relationships: [
-    "What do you value in friendships?",
-    "Who do you trust most?",
-    "How do you show care?",
-    "What makes a good relationship?",
-    "How do you handle conflict?",
-    "Who inspires you?",
-    "What makes you feel connected?",
-    "How do you keep relationships strong?",
-    "What hurts relationships?",
-    "What brings people closer?"
-  ],
-  Self: [
-    "How would you describe yourself?",
-    "What are you proud of?",
-    "What do you want to improve?",
-    "What motivates you?",
-    "What scares you?",
-    "What makes you confident?",
-    "What makes you insecure?",
-    "What defines you?",
-    "What do you enjoy alone?",
-    "What makes you unique?"
-  ],
-  Choices: [
-    "How do you make decisions?",
-    "Do you trust your intuition?",
-    "What choice changed your life?",
-    "What is a hard decision?",
-    "How do you handle regret?",
-    "Do you plan or go with flow?",
-    "What influences your choices?",
-    "What do you avoid deciding?",
-    "What helps you decide?",
-    "What matters most in choices?"
-  ],
-  Values: [
-    "What matters most to you?",
-    "What do you stand for?",
-    "What do you value in others?",
-    "What guides your life?",
-    "What do you refuse to compromise?",
-    "What makes life meaningful?",
-    "What do you believe strongly?",
-    "What principles guide you?",
-    "What shapes your values?",
-    "What do you protect?"
-  ]
-};
-
-const categoryDiv = document.getElementById("categoryCards");
-const questionDiv = document.getElementById("questionCards");
-
-/* 카테고리 카드 */
-Object.keys(data).forEach(cat => {
-  const scene = document.createElement("div");
-  scene.className = "scene";
-
-  const card = document.createElement("div");
-  card.className = "card";
-
-  card.innerHTML = `
-    <div class="card-face category-front">${cat}</div>
-    <div class="card-face category-back">
-      <img src="verse.png">
+  <div class="topics">
+    <div class="topic">
+      <h2>Human Mind & Emotions</h2>
+      <p>Light and open questions for warming up conversations.</p>
+      <a class="button" href="mind.html">Start Card Picking</a>
     </div>
-  `;
 
-  card.onclick = () => draw(cat);
-  scene.appendChild(card);
-  categoryDiv.appendChild(scene);
-});
+    <div class="topic">
+      <h2>Mind & Emotion (Deep)</h2>
+      <p>Longer, philosophical questions about feelings and meaning.</p>
+      <a class="button" href="mind2.html">Start Deep Cards</a>
+    </div>
+  </div>
 
-/* 질문 카드 생성 */
-function draw(cat) {
-  questionDiv.innerHTML = "";
+  <footer>
+    © <span id="year"></span> Cha GPTs. All rights reserved.
+  </footer>
 
-  const qs = [...data[cat]].sort(() => 0.5 - Math.random()).slice(0, 3);
-
-  qs.forEach((q, i) => {
-    const scene = document.createElement("div");
-    scene.className = "scene small";
-
-    const qc = document.createElement("div");
-    qc.className = "card";
-
-    qc.innerHTML = `
-      <div class="card-face question-front">${q}</div>
-      <div class="card-face question-back">
-        <img src="verse.png">
-      </div>
-    `;
-
-    scene.appendChild(qc);
-    questionDiv.appendChild(scene);
-
-    // 처음: verse → 회전 → 질문
-    setTimeout(() => {
-      qc.classList.add("flip");
-    }, 1000 + i * 500);
-  });
-}
-
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
