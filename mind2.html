@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Mind & Emotion – Philosophy Deck</title>
+  <title>Mind & Emotion – Deep</title>
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
 
     h1 {
       font-family: 'Baloo 2', cursive;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     .subtitle {
@@ -33,7 +33,6 @@
       margin-bottom: 20px;
     }
 
-    /* index 돌아가기 */
     .back-home {
       margin-bottom: 25px;
       text-decoration: none;
@@ -42,15 +41,33 @@
       padding: 10px 22px;
       border-radius: 20px;
       box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-      transition: transform 0.2s ease;
       font-size: 14px;
     }
 
-    .back-home:hover {
+    /* 카테고리 */
+    .categories {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .category {
+      background: white;
+      padding: 14px 24px;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      transition: transform 0.2s ease;
+      font-weight: 500;
+    }
+
+    .category:hover {
       transform: translateY(-2px);
     }
 
-    /* 카드 영역 */
+    /* 카드 */
     .cards {
       display: flex;
       gap: 25px;
@@ -88,18 +105,16 @@
       box-shadow: 0 12px 28px rgba(0,0,0,0.25);
     }
 
-    /* 앞면 */
     .front {
-      background: #f4f8ff;
+      background: #f1f6ff;
       font-size: 20px;
       font-weight: 500;
       color: #1e3a5f;
     }
 
-    /* 뒷면 (질문) */
     .back {
       background: linear-gradient(145deg, #1e3a5f, #2f5f9e);
-      color: #ffffff;
+      color: white;
       transform: rotateY(180deg);
       font-size: 16px;
       line-height: 1.7;
@@ -123,6 +138,15 @@
 
   <a href="index.html" class="back-home">Back to Home</a>
 
+  <!-- 카테고리 -->
+  <div class="categories">
+    <div class="category" onclick="drawCards('emotions')">Emotions</div>
+    <div class="category" onclick="drawCards('relationships')">Relationships</div>
+    <div class="category" onclick="drawCards('self')">Self</div>
+    <div class="category" onclick="drawCards('choices')">Choices</div>
+    <div class="category" onclick="drawCards('values')">Values</div>
+  </div>
+
   <!-- 카드 -->
   <div class="cards hidden" id="cardArea">
     <div class="card">
@@ -140,31 +164,76 @@
   </div>
 
   <script>
-    const philosophicalQuestions = [
-      "Is an emotion something we feel, or something we create?",
-      "Can we truly understand our own mind?",
-      "Are emotions a guide to truth or a distraction from it?",
-      "Is it possible to be completely honest with ourselves?",
-      "Does suffering always have meaning?",
-      "Where does the self begin and end?",
-      "Can we choose how we feel, or only how we act?",
-      "Is emotional pain necessary for growth?",
-      "What makes a feeling real?",
-      "Are we defined more by our thoughts or our emotions?",
-      "Can silence express more than words?",
-      "Is inner peace something we find or something we build?",
-      "Do our emotions belong to us, or to our experiences?",
-      "Is happiness a state, or a direction?",
-      "What part of yourself do you avoid listening to?"
-    ];
+    const questions = {
+      emotions: [
+        "Is an emotion something we feel or something we create?",
+        "Can emotions exist without thoughts?",
+        "Is it possible to fully understand a feeling?",
+        "Are emotions truths or interpretations?",
+        "Can we trust our emotions?",
+        "Is emotional pain meaningful?",
+        "Do emotions shape reality?",
+        "Are suppressed emotions still active?",
+        "Is calmness an emotion or a state?",
+        "What emotion do we avoid questioning?"
+      ],
+      relationships: [
+        "Can we ever truly know another person?",
+        "Is love a choice or a consequence?",
+        "Do relationships define who we are?",
+        "Is connection stronger than independence?",
+        "Can silence be intimacy?",
+        "Is conflict necessary for closeness?",
+        "Are we responsible for others’ emotions?",
+        "Can distance deepen relationships?",
+        "Is trust given or earned?",
+        "Do relationships reveal or shape the self?"
+      ],
+      self: [
+        "Where does the self begin and end?",
+        "Are we the same person over time?",
+        "Is identity discovered or constructed?",
+        "Can we observe ourselves objectively?",
+        "Is the self stable or fluid?",
+        "Are we defined by thoughts or actions?",
+        "Is self-awareness freedom or burden?",
+        "Can we escape the self?",
+        "What part of the self is silent?",
+        "Is authenticity possible?"
+      ],
+      choices: [
+        "Do we truly have free will?",
+        "Are choices shaped more by fear or desire?",
+        "Is not choosing still a choice?",
+        "Do choices define us?",
+        "Can a wrong choice still lead to truth?",
+        "Is regret inevitable?",
+        "Are we responsible for unintended outcomes?",
+        "Do choices reveal values?",
+        "Is certainty necessary to choose?",
+        "Can we choose who we become?"
+      ],
+      values: [
+        "Where do values come from?",
+        "Are values universal or personal?",
+        "Do values change with experience?",
+        "Is living by values difficult?",
+        "What value is worth suffering for?",
+        "Are values discovered or taught?",
+        "Can values conflict without resolution?",
+        "Is morality emotional or rational?",
+        "What value do we rarely question?",
+        "Can values define a life?"
+      ]
+    };
 
-    function drawCards() {
+    function drawCards(category) {
       const cardArea = document.getElementById("cardArea");
       const cards = document.querySelectorAll(".card");
 
       cardArea.classList.remove("hidden");
 
-      const shuffled = [...philosophicalQuestions].sort(() => 0.5 - Math.random());
+      const shuffled = [...questions[category]].sort(() => 0.5 - Math.random());
       const selected = shuffled.slice(0, 3);
 
       cards.forEach((card, i) => {
@@ -183,9 +252,6 @@
         }, 300 + i * 300);
       });
     }
-
-    // 페이지 열리면 바로 카드 뽑기
-    drawCards();
   </script>
 
 </body>
