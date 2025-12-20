@@ -15,13 +15,12 @@
       padding: 50px;
       min-height: 100vh;
       background:
-        /* 배경을 더 옅게 */
         linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.65)),
         url("verse.png") no-repeat center center / cover;
       box-sizing: border-box;
     }
 
-    /* 상단 흰 배경 박스 */
+    /* 상단 흰 박스 */
     .hero {
       background: rgba(255,255,255,0.95);
       display: inline-block;
@@ -45,14 +44,20 @@
       color: #444;
     }
 
+    /* 토픽 카드 */
+    .topics {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .topic {
-      margin-top: 20px;
       background: rgba(255,255,255,0.95);
       color: #333;
       padding: 35px 45px;
-      border-radius: 24px;
-      display: inline-block;
-      max-width: 420px;
+      border-radius: 26px;
+      max-width: 360px;
       box-shadow: 0 8px 22px rgba(0,0,0,0.18);
     }
 
@@ -63,8 +68,9 @@
     }
 
     .topic p {
-      font-size: 16px;
-      margin-top: 8px;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-top: 10px;
     }
 
     a.button {
@@ -84,23 +90,24 @@
       transform: translateY(-2px);
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       body {
         padding: 30px 20px;
       }
+
       h1 {
         font-size: 34px;
       }
-      .hero,
+
       .topic {
-        padding: 28px 24px;
+        padding: 30px 25px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- 상단 제목 영역 -->
+  <!-- 상단 소개 -->
   <div class="hero">
     <h1>Verse English Conversation Meetup</h1>
     <p>
@@ -108,11 +115,29 @@
     </p>
   </div>
 
-  <!-- 토픽 영역 -->
-  <div class="topic">
-    <h2>Conversation Topic</h2>
-    <p>Human Mind & Emotions</p>
-    <a class="button" href="mind.html">Start Card Picking</a>
+  <!-- 토픽 선택 -->
+  <div class="topics">
+
+    <!-- Light Mind -->
+    <div class="topic">
+      <h2>Human Mind & Emotions</h2>
+      <p>
+        Easy and open-ended questions to warm up conversations
+        and help people share their thoughts naturally.
+      </p>
+      <a class="button" href="mind.html">Start Card Picking</a>
+    </div>
+
+    <!-- Deep / Philosophy -->
+    <div class="topic">
+      <h2>Mind & Emotion (Deep)</h2>
+      <p>
+        Philosophical questions about emotions, self, and meaning.
+        Designed for deeper reflection and thoughtful dialogue.
+      </p>
+      <a class="button" href="mind2.html">Start Deep Cards</a>
+    </div>
+
   </div>
 
 </body>
