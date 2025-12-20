@@ -2,9 +2,8 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>English Meetup</title>
+  <title>Verse English Conversation Meetup</title>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
@@ -15,12 +14,10 @@
       padding: 50px;
       min-height: 100vh;
       background:
-        linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.65)),
+        linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
         url("verse.png") no-repeat center center / cover;
-      box-sizing: border-box;
     }
 
-    /* 상단 흰 박스 */
     .hero {
       background: rgba(255,255,255,0.95);
       display: inline-block;
@@ -33,18 +30,15 @@
     h1 {
       font-family: 'Baloo 2', cursive;
       font-size: 42px;
-      margin: 0 0 10px 0;
+      margin: 0 0 10px;
       color: #222;
     }
 
     .hero p {
       font-size: 18px;
-      line-height: 1.7;
-      margin: 0;
       color: #444;
     }
 
-    /* 토픽 카드 */
     .topics {
       display: flex;
       gap: 30px;
@@ -54,91 +48,72 @@
 
     .topic {
       background: rgba(255,255,255,0.95);
-      color: #333;
-      padding: 35px 45px;
+      padding: 35px 40px;
       border-radius: 26px;
-      max-width: 360px;
+      width: 330px;
       box-shadow: 0 8px 22px rgba(0,0,0,0.18);
     }
 
     .topic h2 {
       font-family: 'Baloo 2', cursive;
-      margin-top: 0;
       font-size: 26px;
     }
 
     .topic p {
       font-size: 15px;
       line-height: 1.6;
-      margin-top: 10px;
     }
 
     a.button {
       display: inline-block;
-      margin-top: 22px;
+      margin-top: 20px;
       padding: 14px 30px;
       background: #333;
       color: white;
       text-decoration: none;
       border-radius: 30px;
       font-size: 16px;
-      transition: background 0.3s ease, transform 0.2s ease;
     }
 
-    a.button:hover {
-      background: #000;
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      body {
-        padding: 30px 20px;
-      }
-
-      h1 {
-        font-size: 34px;
-      }
-
-      .topic {
-        padding: 30px 25px;
-      }
+    footer {
+      margin-top: 90px;
+      font-size: 13px;
+      color: #555;
+      background: rgba(255,255,255,0.75);
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 20px;
     }
   </style>
 </head>
 <body>
 
-  <!-- 상단 소개 -->
   <div class="hero">
     <h1>Verse English Conversation Meetup</h1>
-    <p>
-      A relaxed space to talk, listen, and connect in English.
-    </p>
+    <p>A relaxed space to talk, listen, and connect in English.</p>
   </div>
 
-  <!-- 토픽 선택 -->
   <div class="topics">
-
-    <!-- Light Mind -->
     <div class="topic">
       <h2>Human Mind & Emotions</h2>
-      <p>
-        Easy and open-ended questions to warm up conversations
-        and help people share their thoughts naturally.
-      </p>
+      <p>Light and open questions for warming up conversations.</p>
       <a class="button" href="mind.html">Start Card Picking</a>
     </div>
 
-    <!-- Deep / Philosophy -->
     <div class="topic">
       <h2>Mind & Emotion (Deep)</h2>
-      <p>
-        Philosophical questions about emotions, self, and meaning.
-        Designed for deeper reflection and thoughtful dialogue.
-      </p>
+      <p>Longer, philosophical questions about feelings and meaning.</p>
       <a class="button" href="mind2.html">Start Deep Cards</a>
     </div>
-
   </div>
+
+  <footer>
+    © <span id="year"></span> Cha GPTs. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
