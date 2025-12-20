@@ -25,7 +25,7 @@ h1 {
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .card {
@@ -46,9 +46,19 @@ h1 {
   transform: rotateY(360deg);
 }
 
-.result {
-  margin-top: 30px;
-  font-size: 18px;
+.question-card {
+  width: 220px;
+  height: 160px;
+  background: white;
+  color: #333;
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  line-height: 1.6;
 }
 
 button {
@@ -76,8 +86,8 @@ footer {
 
 <h1>Choose a Category</h1>
 
-<div class="cards" id="cards"></div>
-<div class="result" id="result"></div>
+<div class="cards" id="categoryCards"></div>
+<div class="cards" id="questionCards"></div>
 
 <button onclick="location.href='index.html'">Back to Home</button>
 
@@ -149,22 +159,29 @@ const data = {
   ]
 };
 
-const cardsDiv = document.getElementById("cards");
-const resultDiv = document.getElementById("result");
+const categoryDiv = document.getElementById("categoryCards");
+const questionDiv = document.getElementById("questionCards");
 
 Object.keys(data).forEach(cat => {
   const card = document.createElement("div");
   card.className = "card";
   card.textContent = cat;
   card.onclick = () => draw(cat, card);
-  cardsDiv.appendChild(card);
+  categoryDiv.appendChild(card);
 });
 
 function draw(cat, card) {
+  questionDiv.innerHTML = "";
   card.classList.add("flip");
+
   setTimeout(() => {
     const qs = [...data[cat]].sort(() => 0.5 - Math.random()).slice(0,3);
-    resultDiv.innerHTML = `<h3>${cat}</h3><ul>` + qs.map(q=>`<li>${q}</li>`).join("") + "</ul>";
+    qs.forEach(q => {
+      const qc = document.createElement("div");
+      qc.className = "question-card";
+      qc.textContent = q;
+      questionDiv.appendChild(qc);
+    });
     card.classList.remove("flip");
   }, 1200);
 }
