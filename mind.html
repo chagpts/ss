@@ -146,81 +146,56 @@
   <a href="index.html" class="back-home">Back to Home</a>
 
   <!-- 카테고리 -->
-   <div class="categories">
-    <button onclick="pick('emotion')">Emotions</button>
-    <button onclick="pick('fear')">Fear</button>
-    <button onclick="pick('love')">Love</button>
-    <button onclick="pick('identity')">Identity</button>
-    <button onclick="pick('growth')">Growth</button>
+  <div class="categories">
+    <div class="category" onclick="drawCards('mind')">Mind</div>
+    <div class="category" onclick="drawCards('life')">Life</div>
+    <div class="category" onclick="drawCards('thinking')">Thinking</div>
+    <div class="category" onclick="drawCards('growth')">Growth</div>
   </div>
 
-  <div class="cards" id="cards"></div>
+  <!-- 카드 -->
+  <div class="cards hidden" id="cardArea">
+    <div class="card">
+      <div class="card-face front">Drawing...</div>
+      <div class="card-face back"></div>
+    </div>
+    <div class="card">
+      <div class="card-face front">Drawing...</div>
+      <div class="card-face back"></div>
+    </div>
+    <div class="card">
+      <div class="card-face front">Drawing...</div>
+      <div class="card-face back"></div>
+    </div>
+  </div>
 
-  <a href="index.html" class="back">← Back to Home</a>
+  <footer>© 2025 Cha GPTs</footer>
 
   <script>
+    /* ❗ 여기 questions만 기존 mind.html 질문으로 교체 ❗ */
     const questions = {
-      emotion: [
-        "What emotion do you feel most often?",
-        "How do you express anger?",
-        "What makes you feel calm?",
-        "Do you hide your emotions?",
-        "What emotion is hardest to handle?",
-        "How do you deal with sadness?",
-        "What makes you feel joyful?",
-        "Can emotions be controlled?",
-        "What triggers your stress?",
-        "How do emotions affect decisions?"
+      mind: [
+        "What do you think about most often?",
+        "When do you feel most clear-headed?",
+        "What usually distracts your thoughts?"
       ],
-      fear: [
-        "What are you afraid of?",
-        "Is fear useful?",
-        "How do you overcome fear?",
-        "What fear did you conquer?",
-        "Does fear stop growth?",
-        "Fear of failure or success?",
-        "What scares people most?",
-        "Is fear learned?",
-        "Does fear protect us?",
-        "What fear remains?"
+      life: [
+        "What feels meaningful to you lately?",
+        "What part of life feels uncertain right now?",
+        "What keeps you moving forward?"
       ],
-      love: [
-        "What is love?",
-        "How do you show love?",
-        "Is love unconditional?",
-        "Can love fade?",
-        "Is self-love important?",
-        "Love or stability?",
-        "Can love be taught?",
-        "What hurts love?",
-        "Does love change us?",
-        "Is love a choice?"
-      ],
-      identity: [
-        "Who are you really?",
-        "What defines identity?",
-        "Do we change over time?",
-        "Are labels helpful?",
-        "Who influences identity?",
-        "Can identity be rebuilt?",
-        "Do we need validation?",
-        "Are we one self or many?",
-        "What shapes personality?",
-        "Is identity fixed?"
+      thinking: [
+        "Do you trust your thoughts?",
+        "When do you overthink the most?",
+        "What helps you calm your mind?"
       ],
       growth: [
-        "What helps personal growth?",
-        "Is pain necessary to grow?",
-        "What holds people back?",
-        "How do habits shape us?",
-        "Is growth uncomfortable?",
-        "Can people truly change?",
-        "What mindset helps growth?",
-        "Is growth a choice?",
-        "What did you outgrow?",
-        "What are you growing into?"
+        "How do you know you are growing?",
+        "What feels difficult but necessary?",
+        "What would growth look like for you now?"
       ]
     };
+
     function drawCards(category) {
       const cardArea = document.getElementById("cardArea");
       const cards = document.querySelectorAll(".card");
