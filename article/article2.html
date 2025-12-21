@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <title>De-Escalation Techniques to Diffuse Conflict</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <style>
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
       line-height: 1.7;
       margin: 0;
-      padding: 40px;
+      padding: 20px;
       background-color: #f9f9f9;
       color: #333;
     }
@@ -18,25 +19,26 @@
       max-width: 900px;
       margin: auto;
       background: #fff;
-      padding: 40px;
-      border-radius: 8px;
+      padding: 32px;
+      border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
 
-    /* navigation buttons */
+    /* Navigation */
     .nav {
-      margin-bottom: 30px;
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
     }
 
     .nav a {
-      display: inline-block;
-      margin-right: 12px;
-      padding: 8px 14px;
+      padding: 10px 16px;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       background-color: #eee;
       color: #333;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       transition: background-color 0.2s;
     }
 
@@ -45,24 +47,25 @@
     }
 
     h1 {
-      font-size: 2rem;
+      font-size: clamp(1.6rem, 4vw, 2rem);
       margin-bottom: 20px;
     }
 
     h2 {
-      margin-top: 40px;
-      font-size: 1.5rem;
+      margin-top: 36px;
+      font-size: clamp(1.3rem, 3.5vw, 1.5rem);
       border-bottom: 2px solid #eee;
-      padding-bottom: 8px;
+      padding-bottom: 6px;
     }
 
     h3 {
-      margin-top: 25px;
-      font-size: 1.2rem;
+      margin-top: 24px;
+      font-size: 1.1rem;
     }
 
     p {
       margin: 10px 0;
+      font-size: 1rem;
     }
 
     ul {
@@ -71,14 +74,38 @@
     }
 
     li {
-      margin-bottom: 12px;
+      margin-bottom: 14px;
+      font-size: 1rem;
     }
 
     .question {
-      margin-bottom: 15px;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+
+      .container {
+        padding: 20px;
+      }
+
+      .nav {
+        flex-direction: column;
+      }
+
+      .nav a {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="container">
 
@@ -117,27 +144,14 @@
     <p><strong>Resources That Can Help You Deal With Conflict</strong></p>
     <p>
       Sometimes, you might need outside help to manage or de-escalate a conflict.
-      Even if you take steps to diffuse the situation, the other party might not be receptive.
+      Even if your efforts don’t work, additional support can help.
     </p>
-    <p>Depending on the nature of the conflict, you might benefit from additional support:</p>
 
     <ul>
-      <li>
-        <strong>Workplace conflict:</strong>
-        Consult your job’s human resources department. They can help mediate the issue.
-      </li>
-      <li>
-        <strong>Conflict with your partner:</strong>
-        A couples therapist can help you work through ongoing issues.
-      </li>
-      <li>
-        <strong>Family conflict:</strong>
-        A marriage and family therapist can help improve communication skills.
-      </li>
-      <li>
-        <strong>Conflict among friends:</strong>
-        A neutral third party can help friends communicate more effectively.
-      </li>
+      <li><strong>Workplace conflict:</strong> Contact HR to help mediate the issue.</li>
+      <li><strong>Partner conflict:</strong> Couples therapy can help resolve ongoing problems.</li>
+      <li><strong>Family conflict:</strong> A family therapist can improve communication.</li>
+      <li><strong>Friend conflict:</strong> A neutral third party can support healthy discussion.</li>
     </ul>
 
     <h2>Discussion Questions</h2>
