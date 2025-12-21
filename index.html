@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Verse English Conversation Meetup</title>
 
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
@@ -11,20 +12,22 @@
       margin: 0;
       font-family: 'Quicksand', Arial, sans-serif;
       text-align: center;
-      padding: 50px;
+      padding: 50px 20px;
       min-height: 100vh;
       background:
         linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
         url("verse.png") no-repeat center center / cover;
+      box-sizing: border-box;
     }
 
+    /* HERO */
     .hero {
       background: rgba(255,255,255,0.95);
       display: inline-block;
       padding: 35px 50px;
       border-radius: 28px;
       box-shadow: 0 8px 22px rgba(0,0,0,0.18);
-      margin-bottom: 50px;
+      margin-bottom: 60px;
     }
 
     h1 {
@@ -37,44 +40,61 @@
     .hero p {
       font-size: 18px;
       color: #444;
+      margin: 0;
     }
 
+    /* TOPICS GRID */
     .topics {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 30px;
-      justify-content: center;
-      flex-wrap: wrap;
+      justify-items: center;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
     }
 
     .topic {
       background: rgba(255,255,255,0.95);
       padding: 35px 40px;
       border-radius: 26px;
-      width: 330px;
+      width: 100%;
+      max-width: 330px;
       box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+      box-sizing: border-box;
     }
 
     .topic h2 {
       font-family: 'Baloo 2', cursive;
       font-size: 26px;
+      margin-bottom: 14px;
+      color: #111;
     }
 
     .topic p {
       font-size: 15px;
       line-height: 1.6;
+      color: #555;
+      margin-bottom: 22px;
     }
 
-    a.button {
+    .button {
       display: inline-block;
-      margin-top: 20px;
       padding: 14px 30px;
       background: #333;
       color: white;
       text-decoration: none;
       border-radius: 30px;
-      font-size: 16px;
+      font-size: 15px;
+      transition: all 0.25s ease;
     }
 
+    .button:hover {
+      background: #111;
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
     footer {
       margin-top: 90px;
       font-size: 13px;
@@ -84,47 +104,64 @@
       padding: 10px 18px;
       border-radius: 20px;
     }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .topics {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+    }
   </style>
 </head>
+
 <body>
 
+  <!-- HERO -->
   <div class="hero">
     <h1>Verse English Conversation Meetup</h1>
     <p>A relaxed space to talk, listen, and connect in English.</p>
   </div>
 
+  <!-- TOPICS -->
   <div class="topics">
+
     <div class="topic">
       <h2>Human Mind & Emotions</h2>
-      <p>Light and open questions for warming up conversations.</p>
+      <p>
+        Light and open questions for warming up
+        conversations.
+      </p>
       <a class="button" href="mind.html">Start Card Picking</a>
     </div>
 
     <div class="topic">
       <h2>Mind & Emotion (Deep)</h2>
-      <p>Longer, philosophical questions about feelings and meaning.</p>
+      <p>
+        Longer, philosophical questions about feelings
+        and meaning.
+      </p>
       <a class="button" href="mind2.html">Start Deep Cards</a>
     </div>
-  </div>
-    
-   
+
     <div class="topic">
       <h2>Articles</h2>
       <p>
         Short readings and reflections about language,
         emotions, and human connection.
       </p>
-      <a href="Article.html" class="article-button">Read Article</a>
+      <a class="button" href="Article.html">Read Article</a>
     </div>
 
-  
-  <footer>
-    © <span id="year"></span> Cha GPTs. All rights reserved.
-  </footer>
+  </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Cha GPTs
+  </footer>
 
 </body>
 </html>
