@@ -13,99 +13,95 @@
       font-family: 'Quicksand', Arial, sans-serif;
       min-height: 100vh;
       background:
-        linear-gradient(rgba(255,255,255,0.65), rgba(255,255,255,0.65)),
+        linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
         url("verse.png") no-repeat center center / cover;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
+      padding: 28px 16px;
       box-sizing: border-box;
     }
 
     h1 {
       font-family: 'Baloo 2', cursive;
+      font-size: 30px;
       margin-bottom: 6px;
     }
 
     .subtitle {
-      font-size: 15px;
+      font-size: 14px;
       color: #555;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       text-align: center;
+      line-height: 1.5;
     }
 
     .back-home {
-      margin-bottom: 35px;
+      margin-bottom: 26px;
       text-decoration: none;
       color: #1e3a5f;
       background: white;
       padding: 10px 22px;
       border-radius: 20px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
-      font-size: 14px;
+      box-shadow: 0 5px 14px rgba(0,0,0,0.18);
+      font-size: 13px;
     }
 
-    /* ARTICLE GRID */
+    /* ARTICLES */
     .articles {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-      max-width: 1100px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
       width: 100%;
+      max-width: 420px;
     }
 
     .article {
-      background: rgba(255,255,255,0.95);
-      padding: 30px 28px;
-      border-radius: 26px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.25s ease;
+      background: rgba(255,255,255,0.96);
+      padding: 24px 22px;
+      border-radius: 24px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s ease;
     }
 
-    .article:hover {
-      transform: translateY(-4px);
+    .article:active {
+      transform: scale(0.98);
     }
 
     .article h2 {
       font-family: 'Baloo 2', cursive;
-      font-size: 22px;
-      margin-bottom: 12px;
+      font-size: 20px;
+      margin-bottom: 10px;
       color: #1e3a5f;
     }
 
     .article p {
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.6;
       color: #555;
-      margin-bottom: 22px;
+      margin-bottom: 16px;
     }
 
-    .read-btn {
-      align-self: flex-start;
-      padding: 12px 26px;
-      background: #1e3a5f;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-size: 14px;
-      transition: background 0.25s ease;
+    .read {
+      font-size: 13px;
+      color: #1e3a5f;
+      font-weight: 500;
     }
 
-    .read-btn:hover {
-      background: #16304d;
-    }
-
-    /* MOBILE */
-    @media (max-width: 900px) {
-      .articles {
-        grid-template-columns: 1fr;
+    /* TABLET+ */
+    @media (min-width: 768px) {
+      body {
+        padding: 40px 20px;
       }
 
       h1 {
-        font-size: 32px;
+        font-size: 34px;
+      }
+
+      .articles {
+        max-width: 700px;
       }
     }
   </style>
@@ -115,40 +111,39 @@
 
   <h1>Articles</h1>
   <div class="subtitle">
-    Short readings for reflection, conversation, and inner awareness
+    Short readings for reflection and conversation
   </div>
 
   <a href="index.html" class="back-home">Back to Home</a>
 
-  <!-- ARTICLES -->
   <div class="articles">
 
-    <div class="article">
+    <a href="article-taxi.html" class="article">
       <h2>The Taxi Cab Theory</h2>
       <p>
         Why timing matters more than effort in relationships,
         and how readiness shapes connection.
       </p>
-      <a href="article-taxi.html" class="read-btn">Read Article</a>
-    </div>
+      <div class="read">Tap to read →</div>
+    </a>
 
-    <div class="article">
+    <a href="article-friends.html" class="article">
       <h2>The 7 Friends Theory</h2>
       <p>
-        Understanding why we drift from friends,
-        and how social circles evolve over time.
+        Why friendships fade, evolve,
+        and reflect different seasons of life.
       </p>
-      <a href="article-friends.html" class="read-btn">Read Article</a>
-    </div>
+      <div class="read">Tap to read →</div>
+    </a>
 
-    <div class="article">
+    <a href="article-emotion.html" class="article">
       <h2>Emotional Availability</h2>
       <p>
         What it really means to be emotionally present,
-        and why availability matters more than intention.
+        and why it matters in connection.
       </p>
-      <a href="article-emotion.html" class="read-btn">Read Article</a>
-    </div>
+      <div class="read">Tap to read →</div>
+    </a>
 
   </div>
 
