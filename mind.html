@@ -47,7 +47,7 @@
       font-size: 14px;
     }
 
-    /* 카테고리 */
+    /* 카테고리 버튼 */
     .categories {
       display: flex;
       flex-direction: column;
@@ -57,15 +57,19 @@
       margin-bottom: 26px;
     }
 
-    .category {
+    .categories button {
       background: white;
       padding: 14px;
       border-radius: 26px;
       cursor: pointer;
       box-shadow: 0 6px 18px rgba(0,0,0,0.18);
       font-weight: 500;
-      text-align: center;
       font-size: 15px;
+      border: none;
+    }
+
+    .categories button:active {
+      transform: scale(0.97);
     }
 
     /* 카드 */
@@ -141,6 +145,7 @@
     @media (min-width: 768px) {
       .categories {
         flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
       }
 
@@ -158,13 +163,16 @@
 
   <a href="index.html" class="back-home">Back to Home</a>
 
+  <!-- 카테고리 -->
   <div class="categories">
-    <div class="category" onclick="drawCards('mind')">Mind</div>
-    <div class="category" onclick="drawCards('life')">Life</div>
-    <div class="category" onclick="drawCards('thinking')">Thinking</div>
-    <div class="category" onclick="drawCards('growth')">Growth</div>
+    <button onclick="pick('emotion')">Emotions</button>
+    <button onclick="pick('fear')">Fear</button>
+    <button onclick="pick('love')">Love</button>
+    <button onclick="pick('identity')">Identity</button>
+    <button onclick="pick('growth')">Growth</button>
   </div>
 
+  <!-- 카드 -->
   <div class="cards hidden" id="cardArea">
     <div class="card">
       <div class="card-face front">Drawing...</div>
@@ -184,29 +192,69 @@
 
   <script>
     const questions = {
-      mind: [
-        "What do you think about most often?",
-        "When do you feel most clear-headed?",
-        "What usually distracts your thoughts?"
+      emotion: [
+        "What emotion do you feel most often?",
+        "How do you express anger?",
+        "What makes you feel calm?",
+        "Do you hide your emotions?",
+        "What emotion is hardest to handle?",
+        "How do you deal with sadness?",
+        "What makes you feel joyful?",
+        "Can emotions be controlled?",
+        "What triggers your stress?",
+        "How do emotions affect decisions?"
       ],
-      life: [
-        "What feels meaningful to you lately?",
-        "What part of life feels uncertain right now?",
-        "What keeps you moving forward?"
+      fear: [
+        "What are you afraid of?",
+        "Is fear useful?",
+        "How do you overcome fear?",
+        "What fear did you conquer?",
+        "Does fear stop growth?",
+        "Fear of failure or success?",
+        "What scares people most?",
+        "Is fear learned?",
+        "Does fear protect us?",
+        "What fear remains?"
       ],
-      thinking: [
-        "Do you trust your thoughts?",
-        "When do you overthink the most?",
-        "What helps you calm your mind?"
+      love: [
+        "What is love?",
+        "How do you show love?",
+        "Is love unconditional?",
+        "Can love fade?",
+        "Is self-love important?",
+        "Love or stability?",
+        "Can love be taught?",
+        "What hurts love?",
+        "Does love change us?",
+        "Is love a choice?"
+      ],
+      identity: [
+        "Who are you really?",
+        "What defines identity?",
+        "Do we change over time?",
+        "Are labels helpful?",
+        "Who influences identity?",
+        "Can identity be rebuilt?",
+        "Do we need validation?",
+        "Are we one self or many?",
+        "What shapes personality?",
+        "Is identity fixed?"
       ],
       growth: [
-        "How do you know you are growing?",
-        "What feels difficult but necessary?",
-        "What would growth look like for you now?"
+        "What helps personal growth?",
+        "Is pain necessary to grow?",
+        "What holds people back?",
+        "How do habits shape us?",
+        "Is growth uncomfortable?",
+        "Can people truly change?",
+        "What mindset helps growth?",
+        "Is growth a choice?",
+        "What did you outgrow?",
+        "What are you growing into?"
       ]
     };
 
-    function drawCards(category) {
+    function pick(category) {
       const cardArea = document.getElementById("cardArea");
       const cards = document.querySelectorAll(".card");
 
