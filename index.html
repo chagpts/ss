@@ -207,6 +207,28 @@
       .meetup-info h2 {
         font-size: 24px;
       }
+      
+            /* JOIN BUTTON */
+      .join-button {
+        display: block;
+        margin: 18px auto 0;
+        padding: 14px 0;
+        background: #6b3df4;
+        color: #fff;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 30px;
+        font-size: 15px;
+        font-weight: 600;
+        box-shadow: 0 6px 16px rgba(107,61,244,0.35);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      
+      .join-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px rgba(107,61,244,0.45);
+      }
+
 
       .topics {
         grid-template-columns: repeat(3, 1fr);
@@ -256,8 +278,19 @@
     <div class="info-item">
       <span>Level:</span> Open to all (Relaxed & friendly)
     </div>
+    <a
+      class="join-button"
+      href="https://www.meetup.com/your-meetup-link"
+      target="_blank"
+    >
+      🚀 소모임 참가하기
+    </a>
+
   </div>
 
+
+
+  
   <div class="topics">
     <div class="topic">
       <h2>Human Mind & Emotions</h2>
