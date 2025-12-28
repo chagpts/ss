@@ -198,6 +198,40 @@
         display: inline-block;
       }
     }
+
+        /* CHANNEL TALK HINT (DESKTOP ONLY) */
+     .channel-hint {
+      position: fixed;
+      bottom: 160px;        /* 채널톡 바로 위 */
+      right: 70px;          /* 채널톡과 수평 정렬 */
+      background: rgba(0,0,0,0.78);
+      color: #fff;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      z-index: 9998;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .channel-hint::after {
+      content: "";
+      position: absolute;
+      right: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: transparent transparent transparent rgba(0,0,0,0.78);
+    }
+
+
+    @keyframes floatHint {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
   </style>
 </head>
 
