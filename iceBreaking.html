@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ice Breaking | Verve English Meetup</title>
+  <title>Ice Breaking Cards</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 
@@ -12,158 +12,176 @@
 
     body {
       margin: 0;
-      padding: 24px 14px;
-      min-height: 100vh;
+      padding: 22px 14px 40px;
       font-family: 'Quicksand', Arial, sans-serif;
-      background:
-        linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
-        url("verse.png") no-repeat center / cover;
+      background: #f3f3f3;
       text-align: center;
     }
 
-    .hero {
-      background: rgba(255,255,255,0.96);
-      padding: 22px 18px;
-      border-radius: 22px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-      margin-bottom: 26px;
+    .container {
+      max-width: 520px;
+      margin: 0 auto;
     }
 
     h1 {
       font-family: 'Baloo 2', cursive;
       font-size: 24px;
-      margin: 0 0 6px;
-      color: #222;
-    }
-
-    .hero p {
-      font-size: 14px;
-      color: #444;
-      margin: 0;
-    }
-
-    .section {
-      max-width: 520px;
-      margin: 0 auto 24px;
-      background: rgba(255,255,255,0.96);
-      padding: 20px;
-      border-radius: 22px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-      text-align: left;
-    }
-
-    .section h2 {
-      font-family: 'Baloo 2', cursive;
-      font-size: 20px;
-      margin-bottom: 12px;
-      color: #111;
-      text-align: center;
-    }
-
-    .question {
-      margin-bottom: 18px;
-    }
-
-    .question strong {
-      display: block;
-      font-size: 15px;
-      color: #222;
       margin-bottom: 6px;
     }
 
-    .question p {
-      font-size: 13px;
+    .subtitle {
+      font-size: 14px;
       color: #555;
-      margin: 0 0 4px;
-      line-height: 1.5;
+      margin-bottom: 22px;
     }
 
-    .hint {
-      font-size: 12px;
-      color: #777;
+    .card {
+      background: #fff;
+      padding: 22px 18px;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      margin-bottom: 16px;
+      text-align: left;
     }
 
-    footer {
-      margin-top: 30px;
+    .category {
       font-size: 12px;
-      color: #555;
-      background: rgba(255,255,255,0.85);
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 18px;
+      color: #888;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .question {
+      font-size: 16px;
+      color: #222;
+      line-height: 1.45;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px 0;
+      border-radius: 30px;
+      border: none;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    .draw-btn {
+      background: #111;
+      color: #fff;
+    }
+
+    .home-btn {
+      background: #e0e0e0;
+      color: #111;
+    }
+
+    button:active {
+      transform: scale(0.98);
     }
   </style>
 </head>
 
 <body>
+  <div class="container">
 
-  <div class="hero">
-    <h1>Ice Breaking</h1>
-    <p>Light questions to warm up and start talking.</p>
+    <h1>Ice Breaking Cards</h1>
+    <div class="subtitle">
+      Click the button and draw 3 cards.<br>
+      Short answers are totally fine.
+    </div>
+
+    <div id="cards"></div>
+
+    <button class="draw-btn" onclick="drawCards()">Draw 3 Cards</button>
+    <button class="home-btn" onclick="location.href='index.html'">← Back to Home</button>
+
   </div>
 
-  <div class="section">
-    <h2>Easy Start</h2>
+  <script>
+    const questions = [
+      // Local
+      { c:"Local", q:"Do you follow any local sports teams?" },
+      { c:"Local", q:"What’s your favorite restaurant around here?" },
+      { c:"Local", q:"Do you have a favorite band you’ve seen locally?" },
+      { c:"Local", q:"Have you been to the new stadium?" },
+      { c:"Local", q:"Do you know any cool local places to hang out?" },
+      { c:"Local", q:"What do you like most about living here?" },
+      { c:"Local", q:"What’s different about this town from others you’ve lived in?" },
+      { c:"Local", q:"Do you have a favorite park around here?" },
+      { c:"Local", q:"Have you lived here your whole life?" },
+      { c:"Local", q:"What local place do you think is underrated?" },
 
-    <div class="question">
-      <strong>Where are you from, and how did you get here today?</strong>
-      <p>Talk about your neighborhood, commute, or the weather.</p>
-      <div class="hint">💡 You can keep it short.</div>
-    </div>
+      // Work
+      { c:"Work", q:"What attracted you to your industry?" },
+      { c:"Work", q:"How did you find out about your current role?" },
+      { c:"Work", q:"What’s the funniest thing that’s happened at work?" },
+      { c:"Work", q:"Do you work remotely or in person?" },
+      { c:"Work", q:"What’s the best career advice you’ve heard?" },
+      { c:"Work", q:"What surprised you most about your job?" },
+      { c:"Work", q:"What’s a career moment you’re proud of?" },
+      { c:"Work", q:"What would your dream job look like?" },
+      { c:"Work", q:"Is there a skill you want to master?" },
 
-    <div class="question">
-      <strong>Is this your first time joining an English meetup?</strong>
-      <p>Share why you decided to come today.</p>
-      <div class="hint">💡 Listening only is okay too.</div>
-    </div>
+      // Interests
+      { c:"Interests", q:"What do you like to do in your free time?" },
+      { c:"Interests", q:"Do you play any instruments?" },
+      { c:"Interests", q:"Do you listen to podcasts?" },
+      { c:"Interests", q:"Do you like trying new restaurants?" },
+      { c:"Interests", q:"What type of music do you listen to?" },
+      { c:"Interests", q:"What’s a hobby you want to try?" },
+      { c:"Interests", q:"Do you enjoy cooking?" },
+      { c:"Interests", q:"Do you like hiking or fitness?" },
+      { c:"Interests", q:"What’s a skill everyone should have?" },
 
-    <div class="question">
-      <strong>How has your week been so far?</strong>
-      <p>Busy, relaxed, stressful, or fun?</p>
-    </div>
-  </div>
+      // Life
+      { c:"Life", q:"Do you have any pets?" },
+      { c:"Life", q:"How has your day been so far?" },
+      { c:"Life", q:"What did you want to be as a kid?" },
+      { c:"Life", q:"What’s your favorite way to unwind?" },
+      { c:"Life", q:"Do you prefer staying in or going out?" },
+      { c:"Life", q:"What’s something you want to do this year?" },
+      { c:"Life", q:"What’s the most spontaneous thing you’ve done?" },
+      { c:"Life", q:"What’s something small that makes you happy?" },
 
-  <div class="section">
-    <h2>Light & Fun</h2>
+      // Entertainment
+      { c:"Entertainment", q:"What’s your favorite movie?" },
+      { c:"Entertainment", q:"What’s your favorite TV show?" },
+      { c:"Entertainment", q:"Do you have a favorite podcast?" },
+      { c:"Entertainment", q:"What kind of music are you into these days?" },
+      { c:"Entertainment", q:"What’s the last movie you watched?" },
+      { c:"Entertainment", q:"Do you enjoy documentaries?" },
+      { c:"Entertainment", q:"If you had one song on repeat forever, what would it be?" },
 
-    <div class="question">
-      <strong>What is something small that made you happy recently?</strong>
-      <p>Food, a message, a moment, anything.</p>
-    </div>
+      // Travel & Fun
+      { c:"Travel", q:"Do you like to travel?" },
+      { c:"Travel", q:"What’s the most interesting place you’ve been?" },
+      { c:"Travel", q:"Where would you like to go next?" },
+      { c:"Fun", q:"If you had a superpower, what would it be?" },
+      { c:"Fun", q:"If you could have dinner with anyone, who would it be?" },
+      { c:"Fun", q:"What’s your favorite holiday?" }
+    ];
 
-    <div class="question">
-      <strong>If you had a free afternoon today, what would you do?</strong>
-      <p>Stay home, go out, meet friends, or rest?</p>
-    </div>
+    function drawCards() {
+      const shuffled = [...questions].sort(() => 0.5 - Math.random());
+      const selected = shuffled.slice(0, 3);
 
-    <div class="question">
-      <strong>What kind of music do you usually listen to these days?</strong>
-      <p>Artists, genres, or moods.</p>
-    </div>
-  </div>
+      const cardsDiv = document.getElementById("cards");
+      cardsDiv.innerHTML = "";
 
-  <div class="section">
-    <h2>Gentle Follow-ups</h2>
-
-    <div class="question">
-      <strong>Why do you think that is?</strong>
-      <p>Good for extending any answer.</p>
-    </div>
-
-    <div class="question">
-      <strong>Can you tell us a bit more?</strong>
-      <p>No pressure — just share what you feel comfortable with.</p>
-    </div>
-
-    <div class="question">
-      <strong>Does anyone feel the same way?</strong>
-      <p>Invite others naturally into the conversation.</p>
-    </div>
-  </div>
-
-  <footer>
-    © 2025 Verve English Meetup
-  </footer>
-
+      selected.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <div class="category">${item.c}</div>
+          <div class="question">${item.q}</div>
+        `;
+        cardsDiv.appendChild(card);
+      });
+    }
+  </script>
 </body>
 </html>
