@@ -1,365 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verve English Conversation Meetup</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verve English Conversation Meetup</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
 
-  <style>
-    * { box-sizing: border-box; }
+  <style>
+    * { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      padding: 24px 14px;
-      min-height: 100vh;
-      font-family: 'Quicksand', Arial, sans-serif;
-      text-align: center;
-      background:
-        linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)),
-        url("verse.png") no-repeat center / cover;
-    }
+    body {
+      margin: 0;
+      padding: 24px 14px;
+      min-height: 100vh;
+      font-family: 'Quicksand', Arial, sans-serif;
+      text-align: center;
+      background:
+        linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)),
+        url("verse.png") no-repeat center / cover;
+    }
 
-    /* HERO */
-    .hero {
-      background: rgba(255,255,255,0.96);
-      padding: 24px 18px;
-      border-radius: 22px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-      margin-bottom: 28px;
-    }
+    .hero {
+      background: rgba(255,255,255,0.96);
+      padding: 24px 18px;
+      border-radius: 22px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+      margin-bottom: 28px;
+    }
 
-    h1 {
-      font-family: 'Baloo 2', cursive;
-      font-size: 24px;
-      margin: 0 0 6px;
-      color: #222;
-    }
+    h1 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 24px;
+      margin: 0 0 8px;
+      color: #222;
+    }
 
-    .hero p {
-      font-size: 14px;
-      color: #444;
-      margin: 0;
-    }
+    .hero p {
+      font-size: 14px;
+      color: #444;
+      margin: 0;
+      line-height: 1.5;
+    }
 
-    /* MEETUP INFO */
-    .meetup-info {
-      max-width: 520px;
-      margin: 0 auto 32px;
-      background: rgba(255,255,255,0.96);
-      padding: 20px;
-      border-radius: 22px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-    }
+    .meetup-info {
+      max-width: 520px;
+      margin: 0 auto 32px;
+      background: rgba(255,255,255,0.96);
+      padding: 20px;
+      border-radius: 22px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    }
 
-    .meetup-info h2 {
-      font-family: 'Baloo 2', cursive;
-      font-size: 20px;
-      margin-bottom: 14px;
-      color: #111;
-    }
+    .meetup-info h2,
+    .meetup-info h3 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 20px;
+      margin-bottom: 14px;
+      color: #111;
+    }
 
-    .info-item {
-      font-size: 14px;
-      color: #444;
-      margin-bottom: 10px;
-      line-height: 1.6;
-    }
+    .info-item {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
 
-    .info-item span {
-      font-weight: 600;
-      color: #222;
-    }
+    .info-item span {
+      font-weight: 600;
+      color: #222;
+    }
 
-    .info-item small {
-      display: block;
-      margin-left: 52px;
-      font-size: 12px;
-      color: #777;
-    }
+    .info-item small {
+      display: block;
+      margin-top: 4px;
+      font-size: 12px;
+      color: #777;
+    }
 
-    .info-item a {
-      color: #6b3df4;
-      text-decoration: none;
-      font-weight: 500;
-    }
+    .info-item a {
+      color: #6b3df4;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-    /* BUTTON */
-    .button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      padding: 14px 0;
-      margin-top: 14px;
-      background: #333;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 28px;
-      font-size: 15px;
-    }
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      padding: 14px 0;
+      margin-top: 14px;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 28px;
+      font-size: 15px;
+    }
 
-    .button:active { background: #111; }
+    .button:active { background: #111; }
 
-    /* MEETUP ORDER */
-    .meetup-order {
-      max-width: 520px;
-      margin: 0 auto 32px;
-    }
+    .order-step {
+      background: rgba(255,255,255,0.95);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
 
-    .meetup-order h3 {
-      font-family: 'Baloo 2', cursive;
-      font-size: 18px;
-      margin-bottom: 14px;
-      color: #111;
-    }
+    .step-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #222;
+    }
 
-    .order-step {
-      background: rgba(255,255,255,0.95);
-      border-radius: 16px;
-      padding: 14px 16px;
-      margin-bottom: 10px;
-      text-align: left;
-    }
+    .order-step p {
+      font-size: 13px;
+      color: #555;
+      margin: 0;
+      line-height: 1.5;
+    }
 
-    .step-title {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 4px;
-      color: #222;
-    }
+    footer {
+      margin-top: 36px;
+      font-size: 12px;
+      color: #555;
+      background: rgba(255,255,255,0.85);
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 18px;
+    }
 
-    .order-step p {
-      font-size: 13px;
-      color: #555;
-      margin: 0;
-      line-height: 1.5;
-    }
+    .channel-hint {
+      position: fixed;
+      bottom: 160px;
+      right: 70px;
+      background: rgba(0,0,0,0.78);
+      color: #fff;
+      font-size: 13px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      z-index: 9998;
+      animation: floatHint 3s ease-in-out infinite;
+      text-align: left;
+    }
 
-    /* TOPICS */
-    .topics {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
-      max-width: 420px;
-      margin: 0 auto;
-    }
+    @keyframes floatHint {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
 
-    .topic {
-      background: rgba(255,255,255,0.96);
-      padding: 22px 20px;
-      border-radius: 22px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-    }
-
-    .topic h2 {
-      font-family: 'Baloo 2', cursive;
-      font-size: 20px;
-      margin-bottom: 8px;
-      color: #111;
-    }
-
-    .topic p {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 16px;
-    }
-
-    /* FOOTER */
-    footer {
-      margin-top: 36px;
-      font-size: 12px;
-      color: #555;
-      background: rgba(255,255,255,0.85);
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 18px;
-    }
-
-    /* DESKTOP */
-    @media (min-width: 768px) {
-      body { padding: 50px 20px; }
-      h1 { font-size: 40px; }
-
-      .hero { padding: 36px 50px; margin-bottom: 60px; }
-      .meetup-info, .meetup-order { margin-bottom: 60px; }
-
-      .topics {
-        grid-template-columns: repeat(3, 1fr);
-        max-width: 1100px;
-        gap: 30px;
-      }
-
-      .button {
-        width: auto;
-        padding: 14px 30px;
-        display: inline-block;
-      }
-    }
-
-        /* CHANNEL TALK HINT (DESKTOP ONLY) */
-     .channel-hint {
-      position: fixed;
-      bottom: 160px;        /* 채널톡 바로 위 */
-      right: 70px;          /* 채널톡과 수평 정렬 */
-      background: rgba(0,0,0,0.78);
-      color: #fff;
-      font-size: 13px;
-      padding: 10px 14px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      z-index: 9998;
-      line-height: 1.4;
-      text-align: left;
-    }
-
-    .channel-hint::after {
-      content: "";
-      position: absolute;
-      right: -8px;
-      top: 50%;
-      transform: translateY(-50%);
-      border-width: 6px;
-      border-style: solid;
-      border-color: transparent transparent transparent rgba(0,0,0,0.78);
-    }
-
-
-    @keyframes floatHint {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-6px); }
-      100% { transform: translateY(0); }
-    }
-  </style>
+    @media (min-width: 768px) {
+      body { padding: 50px 20px; }
+      h1 { font-size: 40px; }
+      .hero { padding: 36px 50px; margin-bottom: 60px; }
+      .meetup-info { margin-bottom: 60px; }
+      .button { width: auto; padding: 14px 30px; display: inline-block; }
+    }
+  </style>
 </head>
 
 <body>
 
-  <div class="hero">
-    <h1>Verve English Conversation Meetup</h1>
-    <p>A relaxed space to talk, listen, and connect in English.</p>
-  </div>
+  <div class="hero">
+    <h1>Verve English Conversation Meetup</h1>
+    <p>A relaxed space to talk, listen, and connect in English.</p>
+  </div>
 
-  <div class="meetup-info">
-    <h2>How to Join</h2>
+  <div class="meetup-info">
+    <h2>How to Join</h2>
 
-    <div class="info-item"><span>Day:</span> Every Sunday</div>
-    <div class="info-item"><span>Time:</span> 10:50 AM – 13:00 PM</div>
+    <div class="info-item"><span>Day:</span> Every Sunday</div>
+    <div class="info-item"><span>Time:</span> 10:50 AM – 1:00 PM</div>
 
-    <div class="info-item">
-      <span>Place:</span>
-      <a href="https://naver.me/xzlzyYoQ" target="_blank">
-        뚜흐느솔, Sungsu (View Map)
-      </a>
-      <small>(Location may vary each week)</small>
-    </div>
+    <div class="info-item">
+      <span>Place:</span>
+      <a href="https://naver.me/xzlzyYoQ" target="_blank">
+        뚜흐느솔, Seongsu (View Map)
+      </a>
+      <small>(Location may vary each week)</small>
+    </div>
 
-    <div class="info-item">
-      <span>Level:</span> Open to all (Relaxed & friendly)
-    </div>
+    <div class="info-item">
+      <span>Level:</span> Open to all (Relaxed & friendly)
+    </div>
 
-    <div class="info-item">
-      <span>Participation fee:</span> please purchase one drink.
-    </div>  
+    <div class="info-item">
+      <span>Participation fee:</span> just one drink ☕
+    </div>
 
-    <a class="button" href="https://www.somoim.co.kr/2bc74b46-8b91-11e9-b679-0afc8908e2961" target="_blank">
-      Practice English With Us
-    </a>
-  </div>
-  
-  <div class="meetup-info">
-    <h3>How the Meetup Usually Goes</h3>
+    <a class="button" href="https://www.somoim.co.kr/2bc74b46-8b91-11e9-b679-0afc8908e2961" target="_blank">
+      Join the Meetup
+    </a>
+  </div>
 
-    <div class="order-step">
-      <div class="step-title">Ice Breaking</div>
-      <p>We start with light conversations to help everyone feel comfortable.</p>
-    </div>
+  <footer>© 2025 Verve English Meetup</footer>
 
-    <div class="order-step">
-      <div class="step-title">Card Discussion</div>
-      <p>We pick conversation cards and share thoughts freely.</p>
-    </div>
-
-    <div class="order-step">
-      <div class="step-title">Article Discussion</div>
-      <p>We read a short article together and talk about ideas and experiences.</p>
-    </div>
-  </div>
-
-  <div class="topics">
-    <div class="topic">
-      <h2>Ice Breaking</h2>
-      <p>Open questions for warming up conversations.</p>
-      <a class="button" href="iceBreaking.html">Let’s Break the Ice</a>
-    </div>
-    <div class="topic">
-      <h2>Card Discussion</h2>
-      <p>We choose a card and talk about the question together.</p>
-      <a class="button" href="card.html">Start Card Picking</a>
-    </div>
-    <div class="topic">
-      <h2>Article Discussion</h2>
-      <p>Short readings and reflections.</p>
-      <a class="button" href="article.html">Read Article</a>
-    </div>
-    <div class="topic">
-      <h2>(TBD) Mind Discussion</h2>
-      <p>We choose a card and talk about the question together.</p>
-      <a class="button" href="mindSelect.html">Start Card Picking</a>
-    </div>
-    <div class="topic">
-      <h2>(TBD) Business English</h2>
-      <p>Short business readings and discussions.</p>
-      <a class="button" href="biz.html">Read Article</a>
-    </div>
-  </div>
-
-  <footer>© 2025 Cha GPTs</footer>
-  
-  <!-- Channel Talk Hint (Desktop) -->
-  <div class="channel-hint">
-    💬 Questions or inquiries?<br>
-    Click the chat icon →
-  </div>
-
-  <!-- Channel.io -->
-  <script>
-    (function(){
-      var w=window;
-      if(w.ChannelIO){
-        return w.console.error("ChannelIO script included twice.");
-      }
-      var ch=function(){ch.c(arguments);};
-      ch.q=[];
-      ch.c=function(args){ch.q.push(args);};
-      w.ChannelIO=ch;
-      function l(){
-        if(w.ChannelIOInitialized){return;}
-        w.ChannelIOInitialized=true;
-        var s=document.createElement("script");
-        s.type="text/javascript";
-        s.async=true;
-        s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";
-        var x=document.getElementsByTagName("script")[0];
-        if(x.parentNode){x.parentNode.insertBefore(s,x);}
-      }
-      if(document.readyState==="complete"){
-        l();
-      } else {
-        w.addEventListener("DOMContentLoaded",l);
-        w.addEventListener("load",l);
-      }
-    })();
-
-    ChannelIO('boot', {
-      pluginKey: "7a00a329-5130-4ac5-8000-8d9abc772efd",
-      position: "right",
-      align: "top",
-      zIndex: 9999
-    });
-  </script>
 </body>
 </html>
-
