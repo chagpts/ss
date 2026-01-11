@@ -1,161 +1,147 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Articles – Verse</title>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article - The Trap of Controlling Others</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       font-family: 'Quicksand', Arial, sans-serif;
-      min-height: 100vh;
-      background:
-        linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
-        url("verse.png") no-repeat center center / cover;
+      background: #f9f9f9;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 28px 16px;
-      box-sizing: border-box;
+      padding: 40px 20px;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 650px;
+      width: 100%;
+      background: white;
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .back-link {
+      display: inline-block;
+      text-decoration: none;
+      color: #1e3a5f;
+      font-weight: 600;
+      margin-bottom: 30px;
+      font-size: 14px;
     }
 
     h1 {
       font-family: 'Baloo 2', cursive;
-      font-size: 30px;
-      margin-bottom: 6px;
-    }
-
-    .subtitle {
-      font-size: 14px;
-      color: #555;
+      font-size: 32px;
+      color: #1e3a5f;
       margin-bottom: 20px;
-      text-align: center;
-      line-height: 1.5;
+      line-height: 1.2;
     }
 
-    .back-home {
-      margin-bottom: 26px;
-      text-decoration: none;
-      color: #1e3a5f;
-      background: white;
-      padding: 10px 22px;
-      border-radius: 20px;
-      box-shadow: 0 5px 14px rgba(0,0,0,0.18);
-      font-size: 13px;
-    }
-
-    /* ARTICLES */
-    .articles {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-      width: 100%;
-      max-width: 420px;
-    }
-
-    .article {
-      background: rgba(255,255,255,0.96);
-      padding: 24px 22px;
-      border-radius: 24px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.18);
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.2s ease;
-    }
-
-    .article:active {
-      transform: scale(0.98);
-    }
-
-    .article h2 {
-      font-family: 'Baloo 2', cursive;
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #1e3a5f;
-    }
-
-    .article p {
+    .meta {
       font-size: 14px;
-      line-height: 1.6;
-      color: #555;
-      margin-bottom: 16px;
+      color: #888;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
     }
 
-    .read {
-      font-size: 13px;
+    .reading-section {
+      margin-bottom: 40px;
+    }
+
+    .reading-section p {
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    .highlight {
+      background: #eef2f7;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .discussion-box {
+      background: #f0f4f8;
+      padding: 25px;
+      border-radius: 20px;
+      margin-top: 40px;
+    }
+
+    .discussion-box h3 {
+      font-family: 'Baloo 2', cursive;
+      margin-top: 0;
       color: #1e3a5f;
-      font-weight: 500;
     }
 
-    /* TABLET+ */
-    @media (min-width: 768px) {
-      body {
-        padding: 40px 20px;
-      }
+    .questions {
+      padding-left: 20px;
+    }
 
-      h1 {
-        font-size: 34px;
-      }
+    .questions li {
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
 
-      .articles {
-        max-width: 700px;
-      }
+    .vocab-list {
+      margin-top: 30px;
+      font-size: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .vocab-item b {
+      color: #1e3a5f;
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 25px; }
+      h1 { font-size: 26px; }
+      .vocab-list { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-
 <body>
 
-  <h1>Articles</h1>
-  <div class="subtitle">
-    Short readings for reflection and conversation
-  </div>
+  <div class="container">
+    <a href="../index.html" class="back-link">← Back to Articles</a>
 
-  <a href="index.html" class="back-home">Back to Home</a>
+    <div class="meta">January 18, 2026 • Relationship & Psychology</div>
+    
+    <h1>The Trap of Controlling Others</h1>
 
-  <div class="articles">
+    <div class="reading-section">
+      <p>Have you ever wondered why we tend to argue more with our family members than with strangers? We are often polite and patient with people we barely know, yet we easily lose our temper with those we love the most.</p>
+      
+      <p>Psychologists suggest that this happens because of <span class="highlight">"closeness-communication bias."</span> Because we are so close to our family, we often feel a sense of ownership or control over them. We unconsciously expect them to think, act, and react exactly like we do.</p>
+      
+      <p>When they don't meet our expectations, we feel frustrated and try to "fix" or "change" them to match our own standards. This desire to make others more like ourselves is a common trap in close relationships. True intimacy, however, begins when we stop trying to control our loved ones and start accepting their individuality.</p>
+    </div>
 
-    <a href="./article/article5.html" class="article">
-      <h2>1/18 The Trap of Controlling Others</h2>
-      <p>
-        Why do we fight more with family? It's often because intimacy leads us to want more control, expecting them to act and think just like we do.
-      </p>
-      <div class="read">Tap to read →</div>
-    </a>
+    <div class="discussion-box">
+      <h3>Let's Talk!</h3>
+      <ul class="questions">
+        <li>Do you agree that we are more "controlling" with family than with strangers? Why or why not?</li>
+        <li>Have you ever tried to change someone’s personality or habits because you thought your way was "right"?</li>
+        <li>What is the best way to respect someone’s individuality while staying close to them?</li>
+      </ul>
 
-    <a href="./article/article2.html" class="article">
-      <h2>1/11 De-Escalation Techniques</h2>
-      <p>
-        De-escalation techniques help calm down conflicts before they get worse by managing emotions and communicating respectfully.
-      </p>
-      <div class="read">Tap to read →</div>
-    </a>
-
-    <a href="./article/article3.html" class="article">
-      <h2>1/4 Why High Self-Esteem Matters</h2>
-      <p>
-        High self-esteem shapes how we see ourselves, how we treat others, and how confidently we face challenges in life.
-      </p>
-      <div class="read">Tap to read →</div>
-    </a>
-
-    <a href="./article/article4.html" class="article">
-      <h2>12/28 The End of the Resolution</h2>
-      <p>
-        Why More People Are Opting for 'Slow Living'
-      </p>
-      <div class="read">Tap to read →</div>
-    </a>
-
-    <a href="./article/article1.html" class="article">
-      <h2>12/21 Five Love Languages</h2>
-      <p>
-        Words of affirmation, Quality time, Gifts, Acts of service, Physical touch 
-      </p>
-      <div class="read">Tap to read →</div>
-    </a>
-
+      <div class="vocab-list">
+        <div class="vocab-item"><b>Intimacy:</b> 친밀함</div>
+        <div class="vocab-item"><b>Lose one's temper:</b> 화를 내다</div>
+        <div class="vocab-item"><b>Ownership:</b> 소유권/통제심</div>
+        <div class="vocab-item"><b>Individuality:</b> 개성/개인 특성</div>
+      </div>
+    </div>
   </div>
 
 </body>
